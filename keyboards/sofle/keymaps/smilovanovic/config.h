@@ -112,7 +112,7 @@
  // #   undef ENABLE_RGB_MATRIX_SOLID_MULTISPLASH
 #endif
 
-#define OLED_TIMEOUT 0
+/* #define OLED_TIMEOUT 0 */
 
 #ifdef OLED_ENABLE
 #   define OLED_FONT_H "keyboards/sofle/keymaps/smilovanovic/glcfont.c"
