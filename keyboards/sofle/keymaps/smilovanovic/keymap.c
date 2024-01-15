@@ -90,7 +90,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_GRV,  KC_1, KC_2, KC_3, KC_4, KC_5, /* --- */ KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINS,
         LALT_T(KC_TAB), KC_Q, KC_W, KC_E, KC_R, KC_T, /* --- */ KC_Y, KC_U, KC_I, KC_O, KC_P, RALT_T(KC_BSLS),
         LSFT_T(KC_ESC), KC_A, KC_S, KC_D, KC_F, KC_G, /* --- */ KC_H, KC_J, KC_K, KC_L, KC_SCLN, RSFT_T(KC_QUOT),
-        KC_LCTL, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_NO, /* --- */ KC_NO, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RCTL,
+        KC_LCTL, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_NO, /* --- */ KC_MUTE, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RCTL,
         // ----------------------------------------------------------------------------------- //
         KC_NO, KC_LALT, KC_LCMD, KC_SPC, LT(_LOWER, KC_ESC), /* --- */ LT(_RAISE, KC_ENT), KC_BSPC, KC_RCMD, KC_NO, KC_NO
     ),
@@ -647,40 +647,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 bool encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) {
-        if (clockwise) {
-            tap_code(KC_VOLU);
-        } else {
-            tap_code(KC_VOLD);
-        }
-		} else if (index == 1) {
-			switch (get_highest_layer(layer_state)) {
-				case _COLEMAK:
-				case _QWERTY:
-				case _COLEMAKDH:
-					if (clockwise) {
-						tap_code(KC_PGDN);
-					} else {
-						tap_code(KC_PGUP);
-					}
-				break;
-			case _RAISE:
-			case _LOWER:
-					if (clockwise) {
-						tap_code(KC_DOWN);
-					} else {
-						tap_code(KC_UP);
-					}
-				break;
-			default:
-					if (clockwise) {
-						tap_code(KC_WH_D);
-					} else {
-						tap_code(KC_WH_U);
-					}
-				break;
-		}
+         if (clockwise) {
+             tap_code(0x47);
+         } else {
+             tap_code(0x48);
+         }
+    } else if (index == 1) {
+         if (clockwise) {
+             tap_code(KC_VOLD);
+         } else {
+             tap_code(KC_VOLU);
+         }
     }
-    return true;
+    return false;
 }
 
 #endif
