@@ -88,7 +88,7 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
         KC_GRV,  KC_1, KC_2, KC_3, KC_4, KC_5, /* --- */ KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINS,
-        LALT_T(KC_TAB), KC_Q, KC_W, KC_E, KC_R, KC_T, /* --- */ KC_Y, KC_U, KC_I, KC_O, KC_P, RALT_T(KC_BSLS),
+        LT(_NUMPAD, KC_TAB), KC_Q, KC_W, KC_E, KC_R, KC_T, /* --- */ KC_Y, KC_U, KC_I, KC_O, KC_P, RALT_T(KC_BSLS),
         LSFT_T(KC_ESC), KC_A, KC_S, KC_D, KC_F, KC_G, /* --- */ KC_H, KC_J, KC_K, KC_L, KC_SCLN, RSFT_T(KC_QUOT),
         KC_LCTL, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_NO, /* --- */ KC_MUTE, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RCTL,
         // ----------------------------------------------------------------------------------- //
@@ -104,17 +104,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [_RAISE] = LAYOUT(
         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, /* --- */ KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-        KC_TAB, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, /* --- */ KC_COPY, KC_NO, KC_NO, KC_NO, KC_PSTE, KC_NO,
-        LSFT_T(KC_ESC), KC_NO, KC_NO, KC_CUT, KC_LALT, KC_LCMD, /* --- */ KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_NO, KC_NO,
+        KC_TAB, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, /* --- */ LGUI(KC_C), KC_NO, LSFT(KC_I), KC_NO, LGUI(KC_V), KC_NO,
+        LSFT_T(KC_ESC), LSFT(KC_A), KC_LCTL, LGUI(KC_X), KC_LALT, KC_LCMD, /* --- */ KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_NO, KC_NO,
         KC_LCTL, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, /* --- */ KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
 
-        KC_NO, KC_LALT, KC_LCMD, KC_SPC, MO(_ADJUST), /* --- */ MO(_ADJUST), KC_BSPC, KC_RCMD, KC_RCTL, KC_NO
+        KC_NO, KC_LALT, KC_LCMD, KC_EQL, MO(_ADJUST), /* --- */ MO(_ADJUST), KC_BSPC, KC_RCMD, KC_RCTL, KC_NO
     ),
     [_ADJUST] = LAYOUT(
         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, /* --- */ KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, /* --- */ KC_NO, 0x7f, KC_NO, KC_NO, KC_NO, KC_NO,
-        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, /* --- */ KC_NO, 0x81, 0x80, KC_NO, KC_NO, KC_NO,
-        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, /* --- */ KC_NO, KC_NO, 0x47, 0x48, KC_NO, KC_NO, KC_NO,
+        KC_NO, KC_NO, KC_NO, KC_NO, 0x7f, KC_NO, /* --- */ KC_NO, 0x7f, KC_NO, KC_NO, KC_NO, KC_NO,
+        KC_NO, KC_NO, KC_NO, 0x81, 0x80, KC_NO, /* --- */ KC_NO, 0x81, 0x80, KC_NO, KC_NO, KC_NO,
+        KC_NO, KC_NO, KC_NO, 0x47, 0x48, KC_NO, KC_NO, /* --- */ KC_NO, KC_NO, 0x47, 0x48, KC_NO, KC_NO, KC_NO,
 
         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, /* --- */ KC_NO, KC_NO, KC_NO, KC_NO, KC_NO
     ),
